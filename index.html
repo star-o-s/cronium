@@ -108,6 +108,8 @@
 	      barRadius: 5,             // Bordes redondeados en barras
 	      barWidth: 4,
 			backend: 'WebAudio',      // Utiliza WebAudio para mejorar el rendimiento
+			xhr: {                  // Hacer que las solicitudes sean más rápidas
+			        timeout: 30000,         // Aumenta el tiempo de espera si tienes problemas de red
 	      cursorWidth: 0 // Esto oculta el cursor
 	    });
 
