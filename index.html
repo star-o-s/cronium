@@ -114,7 +114,16 @@
       wavesurfer.on('ready', function() {
         document.getElementById(buttonId).textContent = 'Play/Pause';
       });
-
+	  
+  // Cuando se reproduce un audio, detenemos los demás
+      wavesurfer.on('play', function() {
+        allWavesurfers.forEach(function(ws) {
+          if (ws !== wavesurfer) {
+            ws.pause(); // Detenemos el audio de otros reproductores
+          }
+        });
+      });
+	  
       document.getElementById(buttonId).addEventListener('click', function() {
         wavesurfer.playPause();
       });
