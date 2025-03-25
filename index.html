@@ -39,6 +39,11 @@
 	h2 {
 		color: white;
 		font-weight: normal;
+		font-size: 15px;
+	}
+	h3 {
+		color: white;
+		font-weight: normal;
 		font-size: 12px;
 	}
     button {
@@ -61,7 +66,8 @@
 <body>
 
   <h1>Cronium</h1>
-
+	<h3>Cronium, 10 years of making Techno. A project that strives to achieve something new.
+	</h3><br>
   <!-- Primer Reproductor -->
   <div class="player-container">
     <h2>Cronium - CR06 (Original Mix)</h2>
@@ -78,11 +84,18 @@
 
   <!-- Tercer Reproductor -->
   <div class="player-container">
-    <h2>cr18</h2>
+    <h2>Cronium - CR18 (Original Mix)</h2>
     <div id="waveform3" class="waveform"></div>
     <button id="play3">..</button>
   </div>
-
+  
+  <div class="player-container">
+    <h2>Cronium - CR22 (Original Mix)</h2>
+    <div id="waveform4" class="waveform"></div>
+    <button id="play4">..</button>
+  </div>
+	
+	
   <script>
     function createWaveSurfer(containerId, buttonId, audioFile) {
       var wavesurfer = WaveSurfer.create({
@@ -113,6 +126,7 @@
     createWaveSurfer('#waveform1', 'play1', 'cr06.wav');
     createWaveSurfer('#waveform2', 'play2', 'cr11.wav');
     createWaveSurfer('#waveform3', 'play3', 'cr18.wav');
+    createWaveSurfer('#waveform4', 'play4', 'cr22.wav');
   </script>
 
 </body>
