@@ -20,10 +20,7 @@
     .player-container {
       margin: 20px auto;
       width: 65%;
-    display: flex; /* Utiliza Flexbox para alinear los elementos en una fila */
-    align-items: center; /* Alinea verticalmente los elementos en el centro */
     }
-
     .waveform {
       height: 55px;
       margin: 10px 0;
@@ -74,32 +71,31 @@
 	</h3><br>
   <!-- Primer Reproductor -->
   <div class="player-container">
-	<button id="play1">Charging...</button>
-	<h2>Cronium - CR06 (Original Mix)</h2>
+    <h2>Cronium - CR06 (Original Mix)</h2>
     <div id="waveform1" class="waveform"></div>
-    
+    <button id="play1">Charging...</button>
   </div>
 
   <!-- Segundo Reproductor -->
   <div class="player-container">
-    <button id="play2">Charging...</button>
     <h2>Cronium - CR11 (Original Mix)</h2>
     <div id="waveform2" class="waveform"></div>
+    <button id="play2">Charging...</button>
   </div>
 
   <!-- Tercer Reproductor -->
   <div class="player-container">
-    <button id="play3">Charging...</button>
     <h2>Cronium - CR18 (Original Mix)</h2>
     <div id="waveform3" class="waveform"></div>
+    <button id="play3">Charging...</button>
   </div>
   
   <div class="player-container">
-    <button id="play4">Charging...</button>
     <h2>Cronium - CR22 (Original Mix)</h2>
     <div id="waveform4" class="waveform"></div>
+    <button id="play4">Charging...</button>
   </div>
-
+	
 
 	<script>
 	  function createWaveSurfer(containerId, buttonId, audioFile, allWavesurfers) {
