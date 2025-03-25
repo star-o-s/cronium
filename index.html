@@ -97,8 +97,6 @@
 	
 	
   <script>
-	  let players = []; // Lista de todos los reproductores
-	  
     function createWaveSurfer(containerId, buttonId, audioFile) {
       var wavesurfer = WaveSurfer.create({
         container: containerId,
@@ -118,10 +116,6 @@
       });
 
       document.getElementById(buttonId).addEventListener('click', function() {
-		  players.forEach(player => {
-		           if (player !== wavesurfer && player.isPlaying()) {
-		             player.pause(); // Detiene otros reproductores
-		           }
         wavesurfer.playPause();
       });
 
