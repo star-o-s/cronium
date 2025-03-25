@@ -95,7 +95,7 @@
     <button id="play4">..</button>
   </div>
 	
-	
+<!--	
   <script>
     function createWaveSurfer(containerId, buttonId, audioFile) {
       var wavesurfer = WaveSurfer.create({
@@ -137,6 +137,52 @@
     createWaveSurfer('#waveform3', 'play3', 'cr18.wav');
     createWaveSurfer('#waveform4', 'play4', 'cr22.wav');
   </script>
+	-->
+	<script>
+	  function createWaveSurfer(containerId, buttonId, audioFile, allWavesurfers) {
+	    var wavesurfer = WaveSurfer.create({
+	      container: containerId,
+	      waveColor: 'white',
+	      progressColor: '#00A1FE',
+	      height: 55,
+	      responsive: true,
+	      barRadius: 5,             // Bordes redondeados en barras
+	      barWidth: 4,
+	      cursorWidth: 0 // Esto oculta el cursor
+	    });
+
+	    wavesurfer.load(audioFile);
+
+	    wavesurfer.on('ready', function() {
+	      document.getElementById(buttonId).textContent = 'Play/Pause';
+	    });
+
+	    // Cuando se reproduce un audio, detenemos los demás
+	    wavesurfer.on('play', function() {
+	      allWavesurfers.forEach(function(ws) {
+	        if (ws !== wavesurfer) {
+	          ws.pause(); // Detenemos el audio de otros reproductores
+	        }
+	      });
+	    });
+
+	    document.getElementById(buttonId).addEventListener('click', function() {
+	      wavesurfer.playPause();
+	    });
+
+	    allWavesurfers.push(wavesurfer); // Añadimos el reproductor a la lista de reproductores
+
+	    return wavesurfer;
+	  }
+
+	  var allWavesurfers = [];
+
+	  // Cargar cada reproductor con un archivo de audio local
+	  createWaveSurfer('#waveform1', 'play1', 'cr06.wav', allWavesurfers);
+	  createWaveSurfer('#waveform2', 'play2', 'cr11.wav', allWavesurfers);
+	  createWaveSurfer('#waveform3', 'play3', 'cr18.wav', allWavesurfers);
+	  createWaveSurfer('#waveform4', 'play4', 'cr22.wav', allWavesurfers);
+	</script>
 
 </body>
 </html>
