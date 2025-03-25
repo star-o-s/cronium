@@ -36,7 +36,10 @@
 
   <!-- Contenedor de la forma de onda -->
   <div id="waveform"></div>
-
+  <!-- Botón de control -->
+  <button id="play">Cargando...</button>
+  <!-- Contenedor de la forma de onda -->
+  <div id="waveform"></div>
   <!-- Botón de control -->
   <button id="play">Cargando...</button>
 
@@ -49,11 +52,15 @@
       height: 75,
       responsive: true,
 	  barRadius: 5,             // Bordes redondeados en barras
-		barWidth: 4
+		barWidth: 4,
+		cursorWidth: 0 // Esto oculta el cursor
     });
 
     // Cargar audio desde una URL pública (debe permitir CORS)
     var audioURL = 'cr06.wav';
+    wavesurfer.load(audioURL);
+	
+    var audioURL = 'cr11.wav';
     wavesurfer.load(audioURL);
 
     // Cuando el audio esté listo, activar el botón
