@@ -3,75 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cronium Official</title>
+  <title>Cronium</title>
   <script src="https://unpkg.com/wavesurfer.js"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
+      background: url('fondo.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      margin: 0;
       padding: 20px;
-	  background-color: #232323;
 	  background-image: url("clay-banks-u27Rrbs9Dwc-unsplash.jpg");
 	  background-size: cover;
     }
-    #waveform {
-      width: 85%;
-      height: 75px;
+    .player-container {
       margin: 20px auto;
+      width: 80%;
+      max-width: 600px;
+    }
+    .waveform {
+      height: 55px;
+      margin: 10px 0;
     }
     button {
       padding: 10px 15px;
       font-size: 16px;
-      margin: 5px;
       cursor: pointer;
+      margin-top: 10px;
     }
-	h2 {
+	h1 {
 		color: white;
 		font-weight: normal;
 	}
+    button {
+        background: #404040;
+        border: none;
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 5px;
+		color: white;
+	    font-weight: bold;
+    }
+	button:hover {
+	    background-color: #555;
+	}
+	
   </style>
 </head>
 <body>
-  <h2>Cronium</h2>
 
-  <!-- Contenedor de la forma de onda -->
-  <div id="waveform"></div>
-  <!-- Botón de control -->
-  <button id="play">Cargando...</button>
-  <!-- Contenedor de la forma de onda -->
-  <div id="waveform"></div>
-  <!-- Botón de control -->
-  <button id="play">Cargando...</button>
+  <h1>Cronium</h1>
+
+  <!-- Primer Reproductor -->
+  <div class="player-container">
+    <h2>cr06</h2>
+    <div id="waveform1" class="waveform"></div>
+    <button id="play1">..</button>
+  </div>
+
+  <!-- Segundo Reproductor -->
+  <div class="player-container">
+    <h2>cr11</h2>
+    <div id="waveform2" class="waveform"></div>
+    <button id="play2">..</button>
+  </div>
+
+  <!-- Tercer Reproductor -->
+  <div class="player-container">
+    <h2>Pista 3</h2>
+    <div id="waveform3" class="waveform"></div>
+    <button id="play3">..</button>
+  </div>
 
   <script>
-    // Inicializar wavesurfer
-    var wavesurfer = WaveSurfer.create({
-      container: '#waveform',
-      waveColor: 'white',
-      progressColor: '#00A1FE',
-      height: 75,
-      responsive: true,
+    function createWaveSurfer(containerId, buttonId, audioFile) {
+      var wavesurfer = WaveSurfer.create({
+        container: containerId,
+        waveColor: 'white',
+        progressColor: '#00A1FE',
+        height: 55,
+        responsive: true,
 	  barRadius: 5,             // Bordes redondeados en barras
 		barWidth: 4,
 		cursorWidth: 0 // Esto oculta el cursor
-    });
+      });
 
-    // Cargar audio desde una URL pública (debe permitir CORS)
-    var audioURL = 'cr06.wav';
-    wavesurfer.load(audioURL);
-	
-    var audioURL = 'cr11.wav';
-    wavesurfer.load(audioURL);
+      wavesurfer.load(audioFile);
 
-    // Cuando el audio esté listo, activar el botón
-    wavesurfer.on('ready', function() {
-      document.getElementById('play').textContent = 'Play/Pause';
-    });
+      wavesurfer.on('ready', function() {
+        document.getElementById(buttonId).textContent = 'Play/Pause';
+      });
 
-    // Control de reproducción
-    document.getElementById('play').addEventListener('click', function() {
-      wavesurfer.playPause();
-    });
+      document.getElementById(buttonId).addEventListener('click', function() {
+        wavesurfer.playPause();
+      });
+
+      return wavesurfer;
+    }
+
+    // Cargar cada reproductor con un archivo de audio local
+    createWaveSurfer('#waveform1', 'play1', 'cr06.wav');
+    createWaveSurfer('#waveform2', 'play2', 'cr11.wav');
+    createWaveSurfer('#waveform3', 'play3', 'audio/pista3.mp3');
   </script>
+
 </body>
 </html>
