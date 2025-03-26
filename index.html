@@ -20,9 +20,12 @@
     .player-container {
       margin: 20px auto;
       width: 65%;
-	 /* display: flex; /* Utiliza Flexbox para alinear los elementos en una fila */
-	     /* align-items: center; /* Alinea verticalmente los elementos en el centro */
-		 
+	  
+  }
+  .play-name {
+	  display: flex; /* Utiliza Flexbox para alinear los elementos en una fila */
+	  align-items: center; /* Alinea verticalmente los elementos en el centro */
+	  gap: 20px; /* Espacio de 20px entre los elementos */
 	}
     .waveform {
       height: 55px;
@@ -74,35 +77,51 @@
 	</h3><br>
   <!-- Primer Reproductor -->
   <div class="player-container">
-    <h2>Cronium - CR06 (Original Mix)</h2>
+    <div class="play-name">
+    	<button id="play1">Charging...</button>
+		<h2>Cronium - CR06 (Original Mix)</h2>
+	</div>
+	
     <div id="waveform1" class="waveform"></div>
-    <button id="play1">Charging...</button>
   </div>
 
   <!-- Segundo Reproductor -->
   <div class="player-container">
+	  <div class="play-name">
+		  <button id="play2">Charging...</button>
     <h2>Cronium - CR11 (Original Mix)</h2>
+	</div>
     <div id="waveform2" class="waveform"></div>
-    <button id="play2">Charging...</button>
+
+    
   </div>
 
   <!-- Tercer Reproductor -->
   <div class="player-container">
+	  <div class="play-name">
+	  <button id="play3">Charging...</button>
     <h2>Cronium - CR18 (Original Mix)</h2>
+</div>
     <div id="waveform3" class="waveform"></div>
-    <button id="play3">Charging...</button>
+    
   </div>
   
   <div class="player-container">
+	  <div class="play-name">
+		  <button id="play4">Charging...</button>
     <h2>Cronium - CR22 (Original Mix)</h2>
+</div>
     <div id="waveform4" class="waveform"></div>
-    <button id="play4">Charging...</button>
+    
   </div>
   
   <div class="player-container">
+	  <div class="play-name">
+		  <button id="play5">Charging...</button>
     <h2>Cronium - CR185 (Original Mix)</h2>
+</div>
     <div id="waveform5" class="waveform"></div>
-    <button id="play5">Charging...</button>
+    
   </div>
 	
 
@@ -155,6 +174,8 @@
 	  createWaveSurfer('#waveform3', 'play3', 'cr18.wav', allWavesurfers);
 	  createWaveSurfer('#waveform4', 'play4', 'cr22.wav', allWavesurfers);
 	  createWaveSurfer('#waveform5', 'play5', 'cr185.wav', allWavesurfers);
+	  
+	  // https://www.mfiles.co.uk/mp3-downloads/gs-cd-track2.mp3
 	</script>
 
 </body>
